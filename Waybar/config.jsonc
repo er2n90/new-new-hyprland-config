@@ -1,0 +1,57 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 4,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "battery"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "default": "○",
+            "active": "●",
+            "urgent": "⬢"
+        }
+    },
+
+    "clock": {
+        "interval": 60, /* Updates once a minute instead of every second to save battery */
+        "format": "{:%H:%M  ·  %A, %b %d}",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "interval": 30, /* Relaxed polling rate to avoid waking the CPU constantly */
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+        "tooltip": false
+    },
+
+    "network": {
+        "interval": 10,
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip-format": "{essid}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": false
+    }
+}

@@ -1,0 +1,73 @@
+/* Reset & Global Config */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent; /* Seamless floating layout */
+    color: #ffffff;
+}
+
+/* Base module wrapper - Pure Black Pill Design */
+#workspaces,
+#clock,
+#pulseaudio,
+#network,
+#battery {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0px 16px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    border: 1px solid #1a1a1a; /* Subtle border for clean separation */
+}
+
+/* --- Left Section (Workspaces) --- */
+#workspaces {
+    margin-left: 8px;
+    padding: 0px 6px;
+}
+
+#workspaces button {
+    padding: 0px 8px;
+    color: #555555; /* Dim inactive workspaces */
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: #ffffff; /* Bright white active indicator */
+}
+
+#workspaces button.urgent {
+    color: #ff5555;
+}
+
+/* --- Center Section (Clock) --- */
+#clock {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* --- Right Section (System Indicators) --- */
+#battery.warning {
+    color: #ffb86c;
+}
+
+/* Static color swap for critical battery to save power (no blinking animations) */
+#battery.critical {
+    background-color: #ff5555;
+    color: #000000;
+}
+
+#network {
+    padding-right: 12px;
+}
+
+#battery {
+    margin-right: 8px;
+}

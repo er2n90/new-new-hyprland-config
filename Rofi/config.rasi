@@ -1,0 +1,110 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    drun-display-format: "{name}";
+    font: "SF Pro Display, JetBrainsMono Nerd Font 11";
+    icon-theme: "Papirus-Dark"; /* Replace with your icon theme if desired */
+    
+    /* Performance tweaks for battery life */
+    sort: false;
+    matching: "normal";
+    disable-history: true;
+}
+
+/* --- PURE BLACK MACOS LAUNCHPAD THEME --- */
+
+* {
+    bg-base:     #000000;
+    bg-item:     #0a0a0a;
+    bg-selected: #161616;
+    fg-main:     #ffffff;
+    fg-dim:      #888888;
+    border-dark: #1a1a1a;
+    
+    background-color: transparent;
+    text-color:       @fg-main;
+}
+
+window {
+    background-color: @bg-base;
+    text-color:       @fg-main;
+    border:           1px;
+    border-color:     @border-dark;
+    border-radius:    16px;
+    
+    /* macOS center screen placement */
+    width:            720px;
+    height:           520px;
+}
+
+mainbox {
+    padding:          24px;
+    spacing:          20px;
+    children:         [ inputbar, listview ];
+}
+
+/* Centered search bar like macOS Spotlight/Launchpad */
+inputbar {
+    background-color: @bg-item;
+    border:           1px;
+    border-color:     @border-dark;
+    border-radius:    10px;
+    padding:          10px 16px;
+    children:         [ prompt, entry ];
+    spacing:          10px;
+}
+
+prompt {
+    text-color:       @fg-dim;
+    font:             "JetBrainsMono Nerd Font 13";
+}
+
+entry {
+    placeholder:      "Search apps...";
+    placeholder-color: @fg-dim;
+    text-color:       @fg-main;
+}
+
+/* Grid layout matching macOS App Grid */
+listview {
+    columns:      4;
+    lines:        3;
+    cycle:        false;
+    dynamic:      true;
+    scrollbar:    false;
+    layout:       vertical;
+    spacing:      16px;
+}
+
+/* App item structure (vertical stack: icon on top, text below) */
+element {
+    orientation:      vertical;
+    padding:          18px 8px;
+    border-radius:    12px;
+    spacing:          10px;
+}
+
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg-main;
+}
+
+/* Pure flat black selection state (Instant render, no GPU burden) */
+element selected.normal {
+    background-color: @bg-selected;
+    text-color:       @fg-main;
+    border:           1px;
+    border-color:     #2a2a2a;
+}
+
+/* Large macOS style app icons */
+element-icon {
+    size:             56px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    text-color:       inherit;
+    font:             "SF Pro Display Medium, Sans 10";
+}
